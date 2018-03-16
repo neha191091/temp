@@ -1,3 +1,0 @@
-/home/neha/Documents/repo/temp/opencv_change_and_save_depth/build/CMakeFiles/edit_cache.dir
-/home/neha/Documents/repo/temp/opencv_change_and_save_depth/build/CMakeFiles/example.dir
-/home/neha/Documents/repo/temp/opencv_change_and_save_depth/build/CMakeFiles/rebuild_cache.dir

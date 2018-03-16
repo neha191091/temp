@@ -1,3 +1,0 @@
-/home/neha/Documents/repo/temp/depth_plane_segmentation/build/CMakeFiles/edit_cache.dir
-/home/neha/Documents/repo/temp/depth_plane_segmentation/build/CMakeFiles/example.dir
-/home/neha/Documents/repo/temp/depth_plane_segmentation/build/CMakeFiles/rebuild_cache.dir
