@@ -1,0 +1,86 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="/home/neha/Documents/repo/temp/MATLAB_packages_from_net/cbrewer_toolbox.prj" location="/home/neha/Documents/repo/temp/MATLAB_packages_from_net" name="cbrewer_toolbox" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>cbrewer</param.appname>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}/cbrewer.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>0036db02-a045-4477-97c0-55d709e479e9</param.guid>
+    <param.exclude.filters />
+    <param.examples />
+    <param.demosxml />
+    <param.apps />
+    <param.docs />
+    <param.matlabpath.excludes />
+    <param.javaclasspath.excludes />
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.examples />
+      <param.demosxml />
+      <param.apps />
+      <param.docs />
+      <param.matlabpath.excludes />
+      <param.javaclasspath.excludes />
+    </unset>
+    <fileset.rootdir>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/._cbrewer.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/._interpolate_cbrewer.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/._plot_brewer_cmap.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/cbrewer.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/cbrewer_preview.jpg</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/change_jet.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/colorbrewer.mat</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/interpolate_cbrewer.m</file>
+      <file>${PROJECT_ROOT}/cbrewer/cbrewer/cbrewer/plot_brewer_cmap.m</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/neha/Documents/repo/temp/MATLAB_packages_from_net" name="cbrewer.mltbx" optional="false">/home/neha/Documents/repo/temp/MATLAB_packages_from_net/cbrewer.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2016b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>4.4.0-119-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
