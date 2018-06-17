@@ -8,11 +8,11 @@ import tempfile
 """
 This is a blender script
 """
-BASE_DIR = "/home/neha/Documents/data/blender_data/"
+BASE_DIR = "/home/neha/segmentation/data/blender_data/"
 INPUT_DATA_DIR = BASE_DIR + "input_data/"
 OUTPUT_DATA_DIR = os.path.join(BASE_DIR, "render_data/")
 
-PROJECT_DIR = "/home/neha/Documents/repo/blender_scripts_render_plys/"
+PROJECT_DIR = "/home/neha/Documents/repo/temp/blender_scripts_render_plys/"
 CAMERA_POSITION_FILE = os.path.join(PROJECT_DIR,"input_files/camera_positions.txt")
 CAMERA_FOCAL_FILE = os.path.join(PROJECT_DIR,"input_files/camera_focal_length.txt")
 RGB_SUFFIX = "_rgb_"
@@ -23,7 +23,7 @@ NUMBER_OF_VIEWS = 4 #360
 OFFSET_DEGREE_FROM_START = 1
 CAMERA_ROTATION_AXIS = 'Z'
 VERTEX_GROUP_FILE = os.path.join(PROJECT_DIR,"input_files/vertex_groups.txt")
-CAMERA_PROPERTIES_FILE = os.path.join(PROJECT_DIR,"input_files/camera_properties_2.txt")
+CAMERA_PROPERTIES_FILE = os.path.join(PROJECT_DIR,"input_files/camera_properties.txt")
 color_mapping = {}
 camera_properties = {}
 
@@ -476,8 +476,9 @@ if __name__ == "__main__":
             fout.write(str(itr_pos_start)+','+str(itr_focals_start)+ ','+str(itr_file_start))
     cam_pos = get_camera_positions(CAMERA_POSITION_FILE)
     offset_degree_start = 0
-    num_process_files = 1
+    num_process_files = 600
     itr_file_stop = (itr_file_start+num_process_files) if (itr_file_start+num_process_files)<len(fileNames) else len(fileNames)
+    print(itr_file_stop)
     for itr_file in range(itr_file_start, itr_file_stop):
         fileName = fileNames[itr_file]
         for itr_pos in range(itr_pos_start, len(cam_pos)):
@@ -497,7 +498,7 @@ if __name__ == "__main__":
                         print('filename: ',fileName,' , offset_degree_start: ',offset_degree_start, ' , index:', index)
 
                         outFileBase = 'human_'+str(itr_file)
-                        x_offset_empty = itr_empty_pos*randint(-0.5,0.5)
+                        x_offset_empty = itr_empty_pos*randint(-1,1)*0.5
                         rotate_empty_and_render(fileName, outFileBase, index*NUMBER_OF_VIEWS, offset_degree_start, x_offset_empty)
 
                         # Save positions to file
