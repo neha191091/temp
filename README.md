@@ -28,5 +28,7 @@ Test for changing workdir from Docker
 Code for freezing tensorflow graph; [source](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py)
 ## tf_opencv_run_a_tf_graph
 C++ code for running a tensorflow graph
-## MATLAB_packages_from_net              
+## MATLAB_packages_from_net
+MATLAB visualization code; [source](https://www.mathworks.com/matlabcentral/fileexchange/52374-show-scroll-visualize-arbitrary-n-dimensional-arrays)
 ## visualize_grads
+python script for visualizing gradient matrices for this project.
