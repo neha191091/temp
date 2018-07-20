@@ -375,6 +375,7 @@ int main(int argc, char** argv)
 			{
 				outfile << vertexMatrix[v_i][j] << delimiter;
 			}
+			// Add color too
 			for(int j=3; j<colorbasematrix[v_i].size()-1; j++)
 			{
 				outfile << colorbasematrix[v_i][j] << delimiter;
