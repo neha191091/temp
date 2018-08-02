@@ -1,3 +1,6 @@
 **/data/*
 **/build/*
 **/.idea/*
+*.ckpt.*
+*.pbtxt
+

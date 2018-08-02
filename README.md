@@ -27,8 +27,12 @@ Test for changing workdir from Docker
 ## freeze_tensorflow_graph
 Code for freezing tensorflow graph; [source](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/freeze_graph.py)
 ## tf_opencv_run_a_tf_graph
-C++ code for running a tensorflow graph
+C++ code for running a tensorflow graph. Depends on libtensorflow_all.so and tensorflow headers created/copied using [FloopCZ's instructions](https://github.com/FloopCZ/tensorflow_cc)
 ## MATLAB_packages_from_net
 MATLAB visualization code; [source](https://www.mathworks.com/matlabcentral/fileexchange/52374-show-scroll-visualize-arbitrary-n-dimensional-arrays)
 ## visualize_grads
 python script for visualizing gradient matrices for this project.
+## test-c_api-tf-portability-1.2-1.3
+code for testing portability of a graph trained and frozen in tf1.3 (create_graph.py) to the tf1.2.1 c_api. Particularly checks if creating the graph with tf.distributions in tf 1.3 prevents it from running in the tf 1.2.1 c_api. Success so far. Copy the command from Makefile and run it on the terminal to build the c++ source, running make will not work. Can be modified for running c_api for higher version tf graphs.
+## aarch64-linux-test-c++
+Testing C++ on aarchlinux machine. Run a.out on the aarch linux machine to test if C++ works.
