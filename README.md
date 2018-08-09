@@ -33,7 +33,10 @@ MATLAB visualization code; [source](https://www.mathworks.com/matlabcentral/file
 ## visualize_grads
 python script for visualizing gradient matrices for this project.
 ## test-c_api-tf-portability-1.2-1.3
-code for testing portability of a graph trained and frozen in tf1.3 (create_graph.py) to the tf1.2.1 c_api. Particularly checks if creating the graph with tf.distributions in tf 1.3 prevents it from running in the tf 1.2.1 c_api. Success so far. Copy the command from Makefile and run it on the terminal to build the c++ source, running make will not work. Can be modified for running c_api for higher version tf graphs.
+code for testing portability of a graph trained and frozen in tf1.3 (create_graph.py) to the tf1.2.1 c_api. Checks if creating the graph with tf.distributions in tf 1.3 prevents it from running in the tf 1.2.1 c_api.:
+1. Checks if using tf.ditributions from tf 1.3 hampers the graph run in tf 1.2.1 c_api
+2. Checks if simple image based ops like Convolution Layer, Maxpooling etc port without problems from tf 1.3 to tf 1.2.1 c_api
+Success so far. Run make on the terminal. Can be modified for running c_api for higher version tf graphs.
 ## v4l2-capture-example-modified
 code to capture images/frames using v4l2 from /dev/videoX (X =0 or 1 or etc...).
 ## aarch64-linux-test-c++
