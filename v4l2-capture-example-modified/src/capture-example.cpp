@@ -52,6 +52,7 @@ static unsigned int     n_buffers;
 static int		out_buf;
 static int              force_format;
 static int              frame_count = 3;
+static int 		count;
 
 int img_width = 640;
 int img_height = 480;
@@ -82,14 +83,30 @@ static void process_image(const void *p, int size)
 	//cv::Mat cvBayer(cv::Size(img_width,img_height),CV_16UC1);
 	//cvBayer.data = (uchar*)p;
 
-	cv::Mat cvBayer(img_height, img_width, CV_16UC1, (void*)p);
+	//cv::Mat cvBayer(img_height, img_width, CV_16UC1, (void*)p);
 	//std::cout<<cvBayer<<std::endl;
 	
 	// Direct Conversion
-	cv::Mat cvBgr(cv::Size(img_width,img_height),CV_8UC3);
-	cv::cvtColor(cvBayer, cvBgr, /*CV_BayerBG2BGR*/cv::COLOR_BayerRG2GRAY); /* Check color conversion codes at https://vovkos.github.io/doxyrest-showcase/opencv/sphinxdoc/enum_cv_ColorConversionCodes.html */
+	//cv::Mat cvBgr(cv::Size(img_width,img_height),CV_8UC3);
+	//cv::cvtColor(cvBayer, cvBgr, /*CV_BayerBG2BGR*/cv::COLOR_BayerRG2GRAY); /* Check color conversion codes at https://vovkos.github.io/doxyrest-showcase/opencv/sphinxdoc/enum_cv_ColorConversionCodes.html */
 
- 	cv::imwrite( "image.jpg", cvBgr );
+ 	//cv::imwrite( "image.jpg", cvBayer );
+	cv::Mat cvmat(img_height, img_width, CV_8UC3, (void*)p);
+	int depth = cvmat.channels();
+
+	std::cout<<"depth: "<<depth<<"\n";
+	//std::cout<<"cvMat\n"<<cvmat<<std::endl;
+	//std::cout<<"printed MAT\n";
+	IplImage *rgb_img;
+	rgb_img = cvDecodeImage((const CvMat*)&cvmat, 1);
+	std::cout<<"Attempting to save foo\n";
+	std::string imagestr= "foo" + std::to_string(count) +".png";
+	cvSaveImage(imagestr.c_str(),rgb_img);
+	std::cout<<"Saved foo\n";
+	//std::cout<<"Attempting to show foo\n";
+	//cv::namedWindow( "cvmat", CV_WINDOW_AUTOSIZE );
+	//cv::imshow("cvmat", cvmat);
+	//std::cout<<"Showed foo\n";
 
 	std::cout<<"P: "<<*(char*)p<<std::endl;
 
@@ -195,7 +212,6 @@ static int read_frame(void)
 
 static void mainloop(void)
 {
-	unsigned int count;
 
 	count = frame_count;
 	fprintf(stdout, "Frame Count: %d\n", frame_count);
@@ -539,9 +555,9 @@ static void init_device(void)
 	fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	if (force_format) {
 		// To force a particular format you must first find out what formats are applicable to your device. Use this command to do so: "v4l2-ctl -dX --list-formats-ext", replace "X" with device node number eg "0". 
-		fmt.fmt.pix.width       = 1280;
-		fmt.fmt.pix.height      = 720;
-		fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB10;
+		fmt.fmt.pix.width       = 640;
+		fmt.fmt.pix.height      = 480;
+		fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_MJPEG;
 					//V4L2_PIX_FMT_SRGGB10;
 					//V4L2_PIX_FMT_SRGGB8;
 					//Not a valid option: V4L2_PIX_FMT_MJPEG;
