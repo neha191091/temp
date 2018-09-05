@@ -3,4 +3,7 @@
 **/.idea/*
 *.ckpt.*
 *.pbtxt
-
+**/*.o
+v4l2-capture-example-modified/*.png
+v4l2-capture-example-modified/*.jpg
+v4l2-capture-example-modified/capture-example

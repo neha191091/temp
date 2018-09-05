@@ -91,7 +91,7 @@ static void process_image(const void *p, int size)
 	//cv::cvtColor(cvBayer, cvBgr, /*CV_BayerBG2BGR*/cv::COLOR_BayerRG2GRAY); /* Check color conversion codes at https://vovkos.github.io/doxyrest-showcase/opencv/sphinxdoc/enum_cv_ColorConversionCodes.html */
 
  	//cv::imwrite( "image.jpg", cvBayer );
-	cv::Mat cvmat(img_height, img_width, CV_8UC3, (void*)p);
+	cv::Mat cvmat(img_height, img_width, CV_16UC1, (void*)p);
 	int depth = cvmat.channels();
 
 	std::cout<<"depth: "<<depth<<"\n";
@@ -581,6 +581,12 @@ static void init_device(void)
 	img_width = fmt.fmt.pix.width;
 	fprintf(stdout, "Width: %d Height: %d PixelFormat %s SizeofImage %d\n", fmt.fmt.pix.width, fmt.fmt.pix.height, fourcc, fmt.fmt.pix.sizeimage);
 	if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_YUYV){
+		printf("Format is V4L2_PIX_FMT_MJPEG\n");
+	}
+	else if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_SRGGB10){
+		printf("Format is V4L2_PIX_FMT_SRGGB10\n");
+	}
+	else if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_MJPEG){
 		printf("Format is V4L2_PIX_FMT_MJPEG\n");
 	}
 
