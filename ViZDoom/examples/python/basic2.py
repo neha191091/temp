@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     # Sets path to additional resources wad file which is basically your scenario wad.
     # If not specified default maps will be used and it's pretty much useless... unless you want to play good old Doom.
-    game.set_doom_scenario_path("../../scenarios/basic.wad")
+    game.set_doom_scenario_path("../../scenarios/basic2")
 
     # Sets map to start (scenario .wad files can contain many maps).
     #game.set_doom_map("map01")
@@ -69,6 +69,7 @@ if __name__ == "__main__":
     game.add_available_button(vzd.Button.MOVE_BACKWARD)
     game.add_available_button(vzd.Button.MOVE_LEFT)
     game.add_available_button(vzd.Button.MOVE_RIGHT)
+    game.add_available_button(vzd.Button.TURN_RIGHT)
 
     # Adds game variables that will be included in state.
     #game.add_available_game_variable(vzd.GameVariable.AMMO2)
@@ -143,7 +144,8 @@ if __name__ == "__main__":
 
             # Makes a random action and get remember reward.
             choice_action = choice(actions)
-            r = game.make_action(choice_action)
+            #r = game.make_action(choice_action)
+            r = game.make_action([False, False, False, False, True])
 
             fwd, bc, lft, rgt = choice_action
 
@@ -185,8 +187,8 @@ if __name__ == "__main__":
             if sleep_time > 0:
                 sleep(sleep_time)
 
-            if not n%100:
-                game.send_game_command("warp {} {}".format(-219, -219))
+            if not n%200:
+                game.send_game_command("warp {} {}".format(0, 20))
                 angle = game.get_game_variable(vzd.GameVariable.ANGLE)
                 x = game.get_game_variable(vzd.GameVariable.POSITION_X)
                 y = game.get_game_variable(vzd.GameVariable.POSITION_Y)
